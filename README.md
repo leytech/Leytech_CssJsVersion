@@ -1,14 +1,14 @@
 ## CSS/JS Cache Buster for Magento
 
-This Magento extension allows you to automatically add a query string to CSS and JS files to help bust browser caches.
+This Magento extension allows you to automatically add a version number to CSS and JS files to help bust browser caches.
 
-But wait! This extension does not rewrite the Mage_Page_Block_Html_Head block like other similar extensions do. This is crucially important as it means it has greater compatibility with many other extensions that already rewrite that same block.
+Unlike other similar extensions this extension does not rewrite the Mage_Page_Block_Html_Head block. This is crucially important as it means it has greater compatibility with many other extensions that already rewrite that same block.
 
 ### Features
 
 - Helps bust browser caches by adding a defined query string to JS and CSS assets.
 - Uses no rewrites! Does not rewrite the Mage_Page_Block_Html_Head block like other similar extensions.
-- Admin setting to define what query string to add.
+- Admin setting to define what query string / version to append.
 - Clean code.
 
 ### Compatibility
@@ -28,7 +28,7 @@ Coming soon....
 
 ### To do
 
-1. Nothing... please add issues for any feature requests.
+1. Possibly make an option to automatically update the version when the cache is cleared.
 
 ### Support
 
