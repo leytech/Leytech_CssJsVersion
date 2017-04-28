@@ -24,7 +24,13 @@ Tested on Magento CE 1.9.3.2. Should work on lower versions and equivalent EE. A
 
 ### Screenshots
 
-Coming soon....
+Without this extension:
+
+![No CSS/JS version](https://cloud.githubusercontent.com/assets/1577895/25537596/0c67aedc-2c37-11e7-84e7-fa29f51a3754.png "No CSS/JS version")
+
+With this extension:
+
+![Appended CSS/JS version](https://cloud.githubusercontent.com/assets/1577895/25537595/0c46ba56-2c37-11e7-9cd6-a9611d1265b8.png "Appended CSS/JS version")
 
 ### To do
 
