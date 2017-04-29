@@ -34,12 +34,40 @@
                     </leytech_cssjsversion_block>
                 </observers>
             </core_block_abstract_to_html_after>
+            <adminhtml_cache_refresh_type>
+                <observers>
+                    <leytech_cssjsversion_cache_type>
+                        <type>singleton</type>
+                        <class>Leytech_CssJsVersion_Model_Observer</class>
+                        <method>updateVersion</method>
+                    </leytech_cssjsversion_cache_type>
+                </observers>
+            </adminhtml_cache_refresh_type>
+            <adminhtml_cache_flush_system>
+                <observers>
+                    <leytech_cssjsversion_cache_system>
+                        <type>singleton</type>
+                        <class>Leytech_CssJsVersion_Model_Observer</class>
+                        <method>updateVersion</method>
+                    </leytech_cssjsversion_cache_system>
+                </observers>
+            </adminhtml_cache_flush_system>
+            <adminhtml_cache_flush_all>
+                <observers>
+                    <leytech_cssjsversion_cache_all>
+                        <type>singleton</type>
+                        <class>Leytech_CssJsVersion_Model_Observer</class>
+                        <method>updateVersion</method>
+                    </leytech_cssjsversion_cache_all>
+                </observers>
+            </adminhtml_cache_flush_all>
         </events>
     </global>
     <default>
         <leytech_cssjsversion>
             <settings>
                 <enable_ext>0</enable_ext>
+                <auto_update>1</auto_update>
                 <append_version></append_version>
             </settings>
         </leytech_cssjsversion>

@@ -29,6 +29,12 @@ class Leytech_CssJsVersion_Model_Observer
         Varien_Profiler::stop('leytech_cssjsversion');
 
         return $this;
+    }
 
+    public function updateVersion()
+    {
+        $helper = Mage::helper('leytech_cssjsversion');
+        $helper->updateVersion();
+        return $this;
     }
 }
