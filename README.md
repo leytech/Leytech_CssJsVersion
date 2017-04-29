@@ -7,8 +7,10 @@ Unlike other similar extensions this extension does not rewrite the Mage_Page_Bl
 ### Features
 
 - Helps bust browser caches by adding a defined query string to JS and CSS assets.
-- Uses no rewrites! Does not rewrite the Mage_Page_Block_Html_Head block like other similar extensions.
-- Admin setting to define what query string / version to append.
+- Uses no Model or Block rewrites! Does not rewrite the Mage_Page_Block_Html_Head block like other similar extensions.
+- Requires no additional web server configuration.
+- Admin setting to define the version to append.
+- Option to automatically set a new version when Magento cache is flushed or refreshed.
 - Clean code.
 
 ### Compatibility
@@ -34,7 +36,7 @@ With this extension:
 
 ### To do
 
-1. Possibly make an option to automatically update the version when the cache is cleared.
+1. Nothing really. Feature requests welcome.
 
 ### Support
 
