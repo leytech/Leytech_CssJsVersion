@@ -47,46 +47,28 @@ class Leytech_CssJsVersion_Helper_Data extends Mage_Core_Helper_Abstract
         return "?v=" . $this->getAppendVersion();
     }
 
-    public function getVersionUrl($url)
-    {
-        if ($this->isEnabled()) {
-            return $url . $this->getAppendVersionString();
-        } else {
-            return $url;
-        }
-    }
-
     public function appendVersionToTags($html)
     {
-        // DOMDocument absolutely hates us all (ref: http://stackoverflow.com/a/29499398/2929617)
-        $doc = new DOMDocument();
-        $doc->loadHTML("<div>$html</div>", LIBXML_HTML_NODEFDTD);
-        $container = $doc->getElementsByTagName('div')->item(0);
-        $container = $container->parentNode->removeChild($container);
-        while ($doc->firstChild) {
-            $doc->removeChild($doc->firstChild);
-        }
-        while ($container->firstChild) {
-            $doc->appendChild($container->firstChild);
-        }
 
-        // Process all the script tags
-        foreach ($doc->getElementsByTagName('script') as $script) {
-            if ($script->hasAttribute('src')) {
-                $script->setAttribute('src', $script->getAttribute('src') . $this->getAppendVersionString());
-            }
-        }
+        // CSS
+        $html = preg_replace_callback(
+            "/href=['\"][^'\"]+?\.css[^'\"]*/",
+            function ($matches) {
+                return $matches[0] . $this->getAppendVersionString();
+            },
+            $html
+        );
 
-        // Process all the link tags (stylesheets)
-        foreach ($doc->getElementsByTagName('link') as $link) {
-            if ($link->hasAttribute('href') && $link->hasAttribute('rel')) {
-                if ($link->getAttribute('rel') == 'stylesheet') {
-                    $link->setAttribute('href', $link->getAttribute('href') . $this->getAppendVersionString());
-                }
-            }
-        }
+        // JS
+        $html = preg_replace_callback(
+            "/src=['\"][^'\"]+?\.js[^'\"]*/",
+            function ($matches) {
+                return $matches[0] . $this->getAppendVersionString();
+            },
+            $html
+        );
 
-        return $doc->saveHTML();
+        return $html;
     }
 
     public function updateVersion()
