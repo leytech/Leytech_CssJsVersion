@@ -10,7 +10,7 @@
 <config>
     <modules>
         <Leytech_CssJsVersion>
-            <version>1.0.0</version>
+            <version>1.0.1</version>
         </Leytech_CssJsVersion>
     </modules>
     <global>
@@ -25,15 +25,6 @@
             </leytech_cssjsversion>
         </helpers>
         <events>
-            <core_block_abstract_to_html_after>
-                <observers>
-                    <leytech_cssjsversion_block>
-                        <type>singleton</type>
-                        <class>Leytech_CssJsVersion_Model_Observer</class>
-                        <method>processBlockHtml</method>
-                    </leytech_cssjsversion_block>
-                </observers>
-            </core_block_abstract_to_html_after>
             <adminhtml_cache_refresh_type>
                 <observers>
                     <leytech_cssjsversion_cache_type>
@@ -63,6 +54,19 @@
             </adminhtml_cache_flush_all>
         </events>
     </global>
+    <frontend>
+        <events>
+            <core_block_abstract_to_html_after>
+                <observers>
+                    <leytech_cssjsversion_block>
+                        <type>singleton</type>
+                        <class>Leytech_CssJsVersion_Model_Observer</class>
+                        <method>processBlockHtml</method>
+                    </leytech_cssjsversion_block>
+                </observers>
+            </core_block_abstract_to_html_after>
+        </events>
+    </frontend>
     <default>
         <leytech_cssjsversion>
             <settings>
