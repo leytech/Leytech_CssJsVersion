@@ -11,20 +11,19 @@ class Leytech_CssJsVersion_Model_Observer
     public function processBlockHtml(Varien_Event_Observer $observer)
     {
         Varien_Profiler::start('leytech_cssjsversion');
-
+        $block = $observer->getBlock();
+        if ($block->getNameInLayout() != 'head') {
+            Varien_Profiler::stop('leytech_cssjsversion');
+            return $this;
+        }
         $helper = Mage::helper('leytech_cssjsversion');
-
         if (!$helper->isEnabled()) {
             Varien_Profiler::stop('leytech_cssjsversion');
             return $this;
         }
 
         $transport = $observer->getTransport();
-        $block = $observer->getBlock();
-
-        if ($block->getNameInLayout() == 'head') {
-            $transport->setHtml($helper->appendVersionToTags($transport->getHtml()));
-        }
+        $transport->setHtml($helper->appendVersionToTags($transport->getHtml()));
 
         Varien_Profiler::stop('leytech_cssjsversion');
 
